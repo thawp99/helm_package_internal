@@ -28,12 +28,12 @@ jobs:
       #     path: ./helm_package_internal
 
       - name: List files
-        run: ls -lt
+        run: ls -l
       
       - name: Get name of last pushed package
         id: get_package_name
         run: |
-          PACKAGE_NAME=$(ls -lt *.tgz | head -n1 | xargs -n 1 basename)
+          PACKAGE_NAME=$(ls -l *.tgz | head -n1 | xargs -n 1 basename)
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
       - name: Commit and Push Package to GitHub
