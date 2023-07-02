@@ -31,7 +31,7 @@ jobs:
           path: ./helm_package_internal
 
       - name: List files 2
-        run: ls -l
+        run: ls -l *.tgz|tail -n1|awk '{print $NF}'
       
       - name: Get name of last pushed package
         id: get_package_name
