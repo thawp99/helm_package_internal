@@ -30,11 +30,10 @@ jobs:
           token: ${{ secrets.ACTION_TOKEN }}
           path: ./helm_package_internal
 
-      - name: Get name of last pushed package
-        id: get_package_name
+      - name: Check last commit
         run: |
-          PACKAGE_NAME=$(ls -ltr *.tgz|tail -n1|awk '{print $NF}')
-          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+          cd ./helm_package_internal
+          git log -1 --pretty=%B
           
       - name: Show name 
         run: |
@@ -46,7 +45,7 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
           helm repo index .  # update Helm repo index
-          git commit -a -m "Update index $PACKAGE_NAME"
+          git commit -a -m "Update index $(git log -1 --pretty=%B)"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
