@@ -25,7 +25,6 @@ jobs:
           git config user.email "github-actions@github.com"
           git add index.yaml
           git commit -m "Update chart index"
-          git push https://github.com/thawp99/helm_package_internal.git HEAD:main
-        env:
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          git push https://${{ secrets.ACTION_TOKEN }}@github.com/thawp99/helm_package_internal.git HEAD:main
+        
 
