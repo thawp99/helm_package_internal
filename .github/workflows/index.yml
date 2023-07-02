@@ -20,20 +20,20 @@ jobs:
         with:
           version: 'v3.3.1'
 
-      - name: Checkout Helm Packages Repo
-        uses: actions/checkout@v2
-        with:
-          repository: "thawp99/helm_package_internal" # replace "username" with your GitHub username
-          token: ${{ secrets.ACTION_TOKEN }}
-          path: ./helm_package_internal
+      # - name: Checkout Helm Packages Repo
+      #   uses: actions/checkout@v2
+      #   with:
+      #     repository: "thawp99/helm_package_internal" # replace "username" with your GitHub username
+      #     token: ${{ secrets.ACTION_TOKEN }}
+      #     path: ./helm_package_internal
 
       - name: List files
-        run: ls -l
+        run: ls -lt
       
       - name: Get name of last pushed package
         id: get_package_name
         run: |
-          PACKAGE_NAME=$(ls -t ./helm_package_internal/*.tgz | head -n1 | xargs -n 1 basename)
+          PACKAGE_NAME=$(ls -lt ./helm_package_internal/*.tgz | head -n1 | xargs -n 1 basename)
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
       - name: Commit and Push Package to GitHub
@@ -53,7 +53,7 @@ jobs:
       #     PACKAGE_NAME=$(ls -t ./helm_package_internal/*.tgz | head -n1 | xargs -n 1 basename)
       #     echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
   
-      # - name: Update commit message
+      # - name: Update commit messageb  
       #   run: |
       #     cd ./helm_package_internal
       #     git config user.name "GitHub Actions"
