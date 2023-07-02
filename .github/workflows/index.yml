@@ -34,7 +34,6 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
           helm repo index .  # update Helm repo index
-          git add index
           git commit -m "Update index"
           git push
         env:
