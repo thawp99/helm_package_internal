@@ -12,19 +12,32 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - name: Git Checkout
+      - name: Checkout Helm Packages Repo
         uses: actions/checkout@v2
+        with:
+          repository: "thawp99/helm_package_internal" # replace "username" with your GitHub username
+          token: ${{ secrets.ACTION_TOKEN }}
+          path: ./helm_package_internal
+
       - name: Helm Installation
         uses: azure/setup-helm@v1.1
         with:
           version: v3.7.0
-      - name: Update Index
+
+      - name: Configure Git
         run: |
-          helm repo index .
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
-          git add index.yaml
-          git commit -m "Update chart index"
-          git push https://${{ secrets.ACTION_TOKEN }}@github.com/thawp99/helm_package_internal.git HEAD:main
-        
+  
+      - name: Commit and Push Package to GitHub
+        run: |
+          cd ./helm_package_internal
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          helm repo index .  # update Helm repo index
+          git add ./*.tgz
+          git commit -m "Add Helm package"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
 
