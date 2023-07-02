@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
     paths:
       - '**.tgz'
 
@@ -25,4 +26,6 @@ jobs:
           git add index.yaml
           git commit -m "Update chart index"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
 
