@@ -27,14 +27,17 @@ jobs:
           repository: "thawp99/helm_package_internal" # replace "username" with your GitHub username
           token: ${{ secrets.ACTION_TOKEN }}
           path: ./helm_package_internal
-  
+
+      - name: List files
+        run: ls -l
+        
       - name: Commit and Push Package to GitHub
         run: |
           cd ./helm_package_internal
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
           helm repo index .  # update Helm repo index
-          git commit -m "Update index"
+          git commit -a -m "Update index"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
