@@ -30,7 +30,7 @@ jobs:
           token: ${{ secrets.ACTION_TOKEN }}
           path: ./helm_package_internal
 
-      - name: List files 2
+      - name: Get name of last pushed package
         id: get_package_name
         run: |
           PACKAGE_NAME=$(ls -l *.tgz|tail -n1|awk '{print $NF}')
