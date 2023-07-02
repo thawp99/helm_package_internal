@@ -34,10 +34,6 @@ jobs:
         run: |
           cd ./helm_package_internal
           git log -1 --pretty=%B
-          
-      - name: Show name 
-        run: |
-          echo "Update index $PACKAGE_NAME"
 
       - name: Commit and Push Package to GitHub
         run: |
