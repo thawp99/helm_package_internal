@@ -1,0 +1,88 @@
+apiVersion: v1
+entries:
+  k8s-app:
+  - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2023-07-02T15:18:40.26013348+07:00"
+    dependencies:
+    - name: common
+      repository: https://tdg-docker-registry.aaa.dmp.true.th/chartrepo/library
+      version: 0.0.5
+    description: A Helm Chart for deploy the kubernetes resources of an application
+    digest: 15eebc3f1d6bf19354e00f2771b24cd922913a0eb2c38acafd456e2d87e4431c
+    name: k8s-app
+    type: application
+    urls:
+    - k8s-app-2.3.18.tgz
+    version: 2.3.18
+  - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2023-07-02T15:18:40.256174048+07:00"
+    dependencies:
+    - name: common
+      repository: https://tdg-docker-registry.aaa.dmp.true.th/chartrepo/library
+      version: 0.0.5
+    description: A Helm Chart for deploy the kubernetes resources of an application
+    digest: a47f256c021fb09b4c50e08f9819f442b65627bc990a3a9a49bd091f0e828652
+    name: k8s-app
+    type: application
+    urls:
+    - k8s-app-2.3.17.tgz
+    version: 2.3.17
+  - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2023-07-02T15:18:40.251619059+07:00"
+    dependencies:
+    - name: common
+      repository: https://tdg-docker-registry.aaa.dmp.true.th/chartrepo/library
+      version: 0.0.5
+    description: A Helm Chart for deploy the kubernetes resources of an application
+    digest: baba6810b39e88cdac1c24e2585a41636b7fae076142e7ab9267a7dbb30d0405
+    name: k8s-app
+    type: application
+    urls:
+    - k8s-app-2.3.16.tgz
+    version: 2.3.16
+  - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2023-07-02T15:18:40.2478965+07:00"
+    dependencies:
+    - name: common
+      repository: https://tdg-docker-registry.aaa.dmp.true.th/chartrepo/library
+      version: 0.0.5
+    description: A Helm Chart for deploy the kubernetes resources of an application
+    digest: 05c9d1c5e5e3baddf1320dcd4d8ee5845fe7074d917ecd8fe1b7b9119df9891a
+    name: k8s-app
+    type: application
+    urls:
+    - k8s-app-2.3.15.tgz
+    version: 2.3.15
+  - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2023-07-02T15:18:40.238588297+07:00"
+    dependencies:
+    - name: common
+      repository: https://tdg-docker-registry.aaa.dmp.true.th/chartrepo/library
+      version: 0.0.5
+    description: A Helm Chart for deploy the kubernetes resources of an application
+    digest: 16fac1d5f4c448fb349b752cda928bfe509db96cea984057bfff01aaa1e9b90f
+    name: k8s-app
+    type: application
+    urls:
+    - k8s-app-2.3.14.tgz
+    version: 2.3.14
+  - apiVersion: v2
+    appVersion: 1.1.2
+    created: "2023-07-02T15:18:40.23363497+07:00"
+    dependencies:
+    - name: common
+      repository: https://tdg-docker-registry.aaa.dmp.true.th/chartrepo/library
+      version: 0.0.5
+    description: A Helm Chart for deploy the kubernetes resources of an application
+    digest: 16cb61d7fcb2476b6f4761305e38aa09c8d6180b5424d24176999d9be00877b9
+    name: k8s-app
+    type: application
+    urls:
+    - k8s-app-2.3.13.tgz
+    version: 2.3.13
+generated: "2023-07-02T15:18:40.228888354+07:00"
