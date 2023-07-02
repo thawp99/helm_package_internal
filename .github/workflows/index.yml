@@ -38,7 +38,6 @@ jobs:
 
       - name: Commit and Push Package to GitHub
         run: |
-          cd ./helm_package_internal
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
           helm repo index .  # update Helm repo index
