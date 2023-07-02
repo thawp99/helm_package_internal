@@ -21,7 +21,7 @@ jobs:
           version: 'v3.3.1'
 
       - name: List files 1
-        run: ls -l
+        run: ls -ltr
 
       - name: Checkout Helm Packages Repo
         uses: actions/checkout@v2
@@ -33,14 +33,9 @@ jobs:
       - name: Get name of last pushed package
         id: get_package_name
         run: |
-          PACKAGE_NAME=$(ls -l *.tgz|tail -n1|awk '{print $NF}')
+          PACKAGE_NAME=$(ls -ltr *.tgz|tail -n1|awk '{print $NF}')
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-      
-      # - name: Get name of last pushed package
-      #   id: get_package_name
-      #   run: |
-      #     PACKAGE_NAME=$(ls -ltr ./helm_package_internal/*.tgz|tail -n1|awk '{print $NF}')
-      #     echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+          
       - name: Show name 
         run: |
           echo "Update index $PACKAGE_NAME"
@@ -56,18 +51,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
           
-      # - name: Get name of last pushed package
-      #   id: get_package_name
-      #   run: |
-      #     PACKAGE_NAME=$(ls -t ./helm_package_internal/*.tgz | head -n1 | xargs -n 1 basename)
-      #     echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-  
-      # - name: Update commit messageb  
-      #   run: |
-      #     cd ./helm_package_internal
-      #     git config user.name "GitHub Actions"
-      #     git config user.email "github-actions@github.com"
-      #     git commit --amend -m "Update index $PACKAGE_NAME"
-      #     git push --force
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
