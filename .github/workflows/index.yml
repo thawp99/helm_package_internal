@@ -40,7 +40,7 @@ jobs:
           cd ./helm_package_internal
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
-          helm repo index .  # update Helm repo index
+          helm repo index --url https://github.com/thawp99/helm_package_internal .  # update Helm repo index
           git commit -a -m "Update index $(git log -1 --pretty=%B)"
           git push
         env:
